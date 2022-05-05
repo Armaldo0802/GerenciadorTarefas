@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Prototipo1_GT;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
  
 
@@ -14,13 +14,13 @@ namespace Prototipo1_GT.Classes
 
     public static class Bd_config
     {
-        public static MySqlConnection Abrir() //objeto
+        public static SqlConnection Abrir() //objeto
         { //Classe de conexao 
-            string cone = "server=localhost; database=gerenciadort; user = root; password= 988205211Arnaldo; port=3312"; //string de conexao 
-            MySqlConnection con = new MySqlConnection(cone);
+            string cone = @"Data Source=SOLID\SQLEXPRESS;Initial Catalog=Tarefa;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            SqlConnection con = new SqlConnection(cone);
             con.Open(); //Abre a conexao
             return con;
-
+            
         }
 
     }
