@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Prototipo1_GT.Classes;
-using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 
 
@@ -46,9 +46,9 @@ namespace Prototipo1_GT.Forms
         {
             if (TxBTarefa.Text != "")
             {
-                MySqlCommand comm = new MySqlCommand();
+                SqlCommand comm = new SqlCommand();
                 comm.Connection = Bd_config.Abrir();
-                comm.CommandText = "INSERT INTO Tarefas (NomeTarefa, Descrição, Data, Hora) VALUES ('" + TxBTarefa.Text + "','" + TxBDescricao.Text + "','" + Dt_Data.Text + "', '" + Dt_Hora.Text + "')";
+                comm.CommandText = "INSERT INTO Tarefas1 (NomeTarefa, Descrição, Data, Hora) VALUES ('" + TxBTarefa.Text + "','" + TxBDescricao.Text + "','" + Dt_Data.Text + "', '" + Dt_Hora.Text + "')";
                 comm.ExecuteReader();
 
                 comm.Connection.Close();
